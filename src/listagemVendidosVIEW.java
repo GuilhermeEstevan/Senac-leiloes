@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -12,12 +11,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Adm
  */
-public class listagemVIEW extends javax.swing.JFrame {
+public class listagemVendidosVIEW extends javax.swing.JFrame {
 
     /**
      * Creates new form listagemVIEW
      */
-    public listagemVIEW() {
+    public listagemVendidosVIEW() {
         initComponents();
         listarProdutos();
     }
@@ -137,26 +136,12 @@ public class listagemVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        try {
-            // Captura o ID digitado no campo de texto
-            int id = Integer.parseInt(id_produto_venda.getText());
-
-            // Instancia o DAO para acessar o banco de dados
-            ProdutosDAO produtosdao = new ProdutosDAO();
-
-            // Chama o método para vender o produto (atualizar o status para 'Vendido')
-            produtosdao.venderProduto(id);
-
-            // Atualiza a listagem dos produtos na tabela
-            listarProdutos();
-
-            // Limpa o campo de texto após a venda
-            id_produto_venda.setText("");
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Por favor, insira um ID válido.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + e.getMessage());
-        }
+        String id = id_produto_venda.getText();
+        
+        ProdutosDAO produtosdao = new ProdutosDAO();
+        
+        //produtosdao.venderProduto(Integer.parseInt(id));
+        listarProdutos();
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
@@ -223,7 +208,7 @@ public class listagemVIEW extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
             model.setNumRows(0);
             
-            ArrayList<ProdutosDTO> listagem = produtosdao.listarProdutos();
+            ArrayList<ProdutosDTO> listagem = produtosdao.listarProdutosVendidos();
             
             for(int i = 0; i < listagem.size(); i++){
                 model.addRow(new Object[]{
