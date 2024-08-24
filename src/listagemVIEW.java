@@ -136,6 +136,15 @@ public class listagemVIEW extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
+        listagemVendidosVIEW vendas = new listagemVendidosVIEW();
+        vendas.setVisible(true);
+    }//GEN-LAST:event_btnVendasActionPerformed
+
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         try {
             // Captura o ID digitado no campo de texto
@@ -158,15 +167,6 @@ public class listagemVIEW extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + e.getMessage());
         }
     }//GEN-LAST:event_btnVenderActionPerformed
-
-    private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        //vendasVIEW vendas = new vendasVIEW(); 
-        //vendas.setVisible(true);
-    }//GEN-LAST:event_btnVendasActionPerformed
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
