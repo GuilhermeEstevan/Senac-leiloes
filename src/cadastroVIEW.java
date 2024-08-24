@@ -141,21 +141,31 @@ public class cadastroVIEW extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         ProdutosDTO produto = new ProdutosDTO();
+        
+        // Captura os dados dos campos de texto
         String nome = cadastroNome.getText();
         String valor = cadastroValor.getText();
-        String status = "A Venda";
+        String status = "A Venda";  // Define o status como "A Venda"
+        
+        // Atribui os valores ao objeto produto
         produto.setNome(nome);
-        produto.setValor(Integer.parseInt(valor));
+        produto.setValor(Integer.parseInt(valor));  // Converte o valor para inteiro
         produto.setStatus(status);
         
+        // Instancia o DAO e cadastra o produto
         ProdutosDAO produtodao = new ProdutosDAO();
         produtodao.cadastrarProduto(produto);
+        
+        // Limpa os campos após o cadastro
+        cadastroNome.setText("");
+        cadastroValor.setText("");
+
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
         listagemVIEW listagem = new listagemVIEW(); 
-        listagem.setVisible(true);
+        listagem.setVisible(true); 
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     /**
